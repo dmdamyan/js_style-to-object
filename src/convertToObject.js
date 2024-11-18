@@ -8,16 +8,11 @@
 function convertToObject(sourceString) {
   const array = [...sourceString.split(';')];
 
-  array.map((element, i) => [
-    element.slice(0, element.indexOf(':') + 1),
-    element.slice(element.indexOf(':') + 1, -1),
-  ]);
+  array.map((element) => element.split(' '));
 
-  array.map((element) => element[0] + element[1]);
+  const result = { ...array };
 
-  const newObject = { ...array };
-
-  return newObject;
+  return result;
 }
 
 module.exports = convertToObject;
